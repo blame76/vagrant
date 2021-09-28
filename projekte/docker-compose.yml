@@ -1,0 +1,31 @@
+version: "3.2"
+services:
+  nginx:
+    build: './images/nginx/1.9/'
+    volumes:
+      - /home/vagrant/www:/var/www/
+      - ./images/nginx/1.9/etc/sites-available/:/etc/nginx/sites-available/
+      - ./images/nginx/1.9/etc/sites-available/:/etc/nginx/sites-enabled/
+    ports:
+    - "80:80"
+    - "443:443"
+  php_7.1-fpm:
+    build: './images/php/7.1.33-fpm/'
+    volumes:
+      - /home/vagrant/www:/var/www/
+  php_7.2-fpm:
+    build: './images/php/7.2.34-fpm/'
+    volumes:
+      - /home/vagrant/www:/var/www/
+  php_7.3-fpm:
+    build: './images/php/7.3.31-fpm/'
+    volumes:
+      - /home/vagrant/www:/var/www/
+  php_7.4-fpm:
+    build: './images/php/7.4.24-fpm/'
+    volumes:
+      - /home/vagrant/www:/var/www/
+  php_8.0-fpm:
+    build: './images/php/8.0.11-fpm/'
+    volumes:
+      - /home/vagrant/www:/var/www/
